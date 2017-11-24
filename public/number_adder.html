@@ -1,0 +1,281 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+#buttonC {
+font-family: arial;
+}
+#buttonD {
+font-family: arial;
+}
+#buttonE {
+font-family: arial;
+}
+#buttonF {
+font-family: arial;
+}
+#numdisplay{
+font-family: arial
+}
+/*.redclass {
+font-family: arial;
+border-radius: 5px;
+background-color: #FF2205;
+color: #FFFFFF;
+border: 1px solid #AF0505;
+}
+.greenclass {
+font-family: arial;
+border-radius: 5px;
+background-color: #4CAF50;
+color: #FFFFFF;
+border: 1px solid #0C7F10;
+}
+.blueclass {
+font-family: arial;
+border-radius: 5px;
+background-color: #3333FF;
+color: #FFFFFF;
+border: 1px solid #0505AF;
+}
+.yellowclass {
+font-family: arial;
+border-radius: 5px;
+background-color: #CCCC00;
+color: #FFFFFF;
+border: 1px solid #888800;
+}*/
+/*number_adder is below
+*/
+.nbclass {
+font-family: arial;
+border-radius: 8px;
+background-color: #999999;
+color: #FFFFFF;
+border: 2px solid #333333;
+}
+.newclass {
+font-family: arial;
+border-radius: 8px;
+background-color: #AAAAAA;
+color: #FFFFFF;
+border: 4px solid #333333;
+}
+.sumclass {
+	position:center;
+font-family: arial;
+border-radius: 8px;
+background-color: #FFFFFF;
+color: #333333;
+border: 2px solid #333333;
+font-family: arial;
+list-style:none;
+display:inline;
+}
+div {
+	width:100%;
+	height:200px;
+	position:center;
+	left:50%;
+	top:50%;
+/*	transform:translateX(-50%) translateY(-50%);*/
+    color: #333333;
+	font-family: arial;
+    text-align: center;
+    text-indent:none;
+    word-spacing:inherit;
+    letter-spacing:inherit;
+    line-height:20px;
+    margin-bottom:-20px;
+    padding:9px;
+    display:inline;
+}
+ul li {
+	list-style:none;
+	display:inline;
+	}
+</style>
+</head>
+<body>
+<br>
+<ul>
+<li><div id="numdisplay" class="sumclass">0</div></li>
+<br>
+<br>
+<li><input type="button" id="buttonC" value="one" class="oneclass nbclass"></li>
+<li><input type="button" id="buttonD" value="five" class="fiveclass nbclass"></li>	
+<li><input type="button" id="buttonE" value="fifty" class="fiftyclass nbclass"></li>	
+<li><input type="button" id="buttonF" value="1,000" class="thousandclass nbclass"></li>
+</ul>
+<script> 
+// $(function() {
+// $("#buttonC").on("click", function(e) {
+//     Function1();
+// });
+// // dot (.something ) something = class; pound #something = id
+// $("#buttonD").on("click", function(e) {
+//     Function2();
+// });
+// $("#buttonE").on("click", function(e) {
+//     Function3();
+// });
+// // dot (.something ) something = class; pound #something = id
+// $("#buttonF").on("click", function(e) {
+//     Function4();
+// });
+
+//----------------------------------------------------
+$(function() {
+$(".nbclass").on("click", function(e) {
+	$(".nbclass").removeClass("newclass");
+	console.log("this.value equals: ",this.value); //'value' is the text CSS "value" of the button.
+	var passNumberNameTofunctionColorBtn = this.value;
+	console.log(this);
+	$( this ).addClass("newclass");
+    functionColorBtn(passNumberNameTofunctionColorBtn);
+
+});
+function functionColorBtn(acceptNumberButtonName){
+	console.log(acceptNumberButtonName);
+	var urlname ='/number_of_button_clicked/'+acceptNumberButtonName;
+	console.log("urlname variable console log: ", urlname);
+	console.log("just before the AJAX call");
+	$.ajax ({
+		url: urlname,
+		// object property whose name is "method" (shoulda been called 'type'):
+		method: 'GET',
+		// method object property whose value is usually an anonymous function:
+		success: function (data){
+			console.log("this.url: ", this.url);
+			console.log("data: ", data);
+			if (!data.numbutton && data.numbutton != 0){
+				var numD = document.getElementById('numdisplay').innerHTML;
+				console.log("cock");
+			}
+			else {
+				console.log(typeof document.getElementById("numdisplay").innerHTML);
+				console.log(typeof data.numbutton);
+				document.getElementById("numdisplay").innerHTML = data.numbutton + (document.getElementById("numdisplay").innerHTML * 1);
+			}
+		},
+		error: function (err){
+			console.log("err: ", err);
+		}
+	});
+console.log("just fired the AJAX call");
+console.log("doing some other shit");
+
+}
+//----------------------------------------------------
+
+
+// function buttonFunctionC () {
+// 	var inputCC = document.getElementById("input1").value;
+// 	if (inputCC && inputCC.length){
+// 		$(".nbclass").css({"background-color":"#ffffff","font-family":"arial","border-radius":"8px","background-color","#999999","color","#FFFFFF","border":"2px solid #333333"});
+// 		$(".oneclass").css({"background-color","#dddd49","border","2px solid #333333"});
+// 		console.log(input1);
+// 		indepFunction(input1,0);
+// 	}
+// }
+function buttonFunctionD () {
+	var input2 = document.getElementById("input2").value;
+	if (input2 && input2.length){
+		console.log(input2);
+		indepFunction(input2,1);
+	}
+}
+function buttonFunctionE () {
+	var input3 = document.getElementById("input1").value;
+	if (input3 && input1.length){
+		$(".simple_button").css("background-color","#dddd49");
+		console.log(input1);
+		indepFunction(input1,0);
+	}
+}
+function buttonFunctionF () {
+	var input4 = document.getElementById("input2").value;
+	if (input4 && input2.length){
+		console.log(input2);
+		indepFunction(input2,1);
+	}
+}
+// This (commented out)kind of function definition is not "hoisted" and must occur 
+// before its function call:
+// var indepFunction = function (input1, a){
+//} This kind of function definition is "hoisted" and can occur after or before its function call: 
+function indepFunction(inputx, zerooroneoperator){
+	console.log(inputx, zerooroneoperator);
+	var urlname ='/two_inputs/'+inputx+'/'+zerooroneoperator;
+	console.log(urlname);
+		$.ajax ({
+		url: urlname,
+		// object property whose name is method (shoulda been called 'type'):
+		method: 'GET',
+		// method object property whose value is usually an anonymous function:
+		success: function (data){
+			console.log("data: ", data);
+		},
+		error: function (err){
+			console.log("err: ", err);
+		}
+	});
+}
+
+
+
+// So let's do this: make 4 buttons (but no inputs).  Make each button a different color and also have each button's display text (value) be the name of the color. (don't get fixated on color selection).  
+
+// This time instead of writing a jquery click event listener for each button, we'll use a single click event listener for all three like this:
+
+// $("#first-id, #second-id, #third-id, #fourth").on("click"..yada yada 
+// Then have that event handler call a new function that will make an ajax call and pass the name of the color to a new server route that then plugs the name of the color into a simple sentence like, "the blue button was clicked", logs that sentence to the server console , puts the sentence into an object like this: 
+
+// {
+//     message : "the blue button was clicked"
+
+// }
+
+// then sends the object back down to the browser, where your ajax success handler console logs the sentence (not the whole object). 
+// Inside of a method "this" refers to object itself
+// Insiade jQuery event handler function, "this"(javascript object of the element) refers to object event handler originated from.
+// this.ID 
+
+
+// Onclick event Handlers:
+// so yes, 
+// You'll need to give your buttons IDs
+// alternate syntax:
+
+// $("#yourButtonId").click(function(e) {
+//     Function1();
+// });
+// // ...I prefer the first syntax pattern.  There are lots of things that you can do in jquery with a similar pattern of:
+
+// $("CSSselector").on("eventName", function(theEventObject) {
+//      // do something and use the eventObject if you want
+// });
+
+// // plain javascript syntax (no jquery):
+// document.getElementById("idOfButton").addEventListener("click", Function1);
+// notice the absence of (); after Function1.
+
+
+// AJAX server object
+	// $.ajax ({
+	// 	url: '/first_ajax_example',
+	// 	// object property whose name is method (shoulda been called 'type'):
+	// 	method: 'GET',
+	// 	// method object property whose value is usually an anonymous function:
+	// 	success: function (data){
+	// 		console.log("data: ", data);
+	// 	},
+	// 	error: function (err){
+	// 		console.log("err: ", err);
+	// 	}
+	// });
+});
+console.log($);
+</script>
+</body>
+</html>

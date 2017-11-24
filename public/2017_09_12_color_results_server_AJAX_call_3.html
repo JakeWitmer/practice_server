@@ -1,0 +1,145 @@
+<html><!-- 
+2017_09_12_color_results_server_AJAX_call_3.html -->
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+#colorSentence
+{
+min-width:10px;
+max-width: 200px;
+display:inline;
+width:100%;
+}
+#colorWord
+{
+display:inline;
+}
+.width100 {
+background-color: #FFFFFF;
+display:inline-block;
+width:100%; 
+}
+.asablock {
+margin:10px;
+display:inline-block;
+}
+#button_id {
+list-style:none;
+display:inline;
+font-family: arial;
+}
+.redclass {
+border-radius: 5px;
+background-color: #FF2205;
+color: #FFFFFF;
+border: 1px solid #AF0505;
+}
+.greenclass {
+border-radius: 5px;
+background-color: #4CAF50;
+color: #FFFFFF;
+border: 1px solid #0C7F10;
+}
+.blueclass {
+border-radius: 5px;
+background-color: #3333FF;
+color: #FFFFFF;
+border: 1px solid #0505AF;
+}
+.yellowclass {
+border-radius: 5px;
+background-color: #CCCC00;
+color: #FFFFFF;
+border: 1px solid #888800;
+}
+h1 {
+color: #333333;
+}
+div {
+display:inline;
+border-radius: 3px;
+border: 0px solid #000000;
+width:50%;
+height:25%;
+vertical-align: center;
+position:center;
+left:50%;
+top:50%;
+text-align: center;
+}
+span{
+display:inline;
+border-radius: 2px;
+border: 0px solid #0808dd;
+}
+
+</style>
+</head>
+<body>
+	<div></div>
+<div class="asablock"> <div class="width100">
+<span id="colorSentence"></span>
+	</div>
+	<br>
+	<br>
+	<div><input type="button" id="buttonC" value="red" class="redclass cbclass">
+	</div>
+	<div><input type="button" id="buttonD" value="green" class="greenclass cbclass">
+	</div>
+	<div><input type="button" id="buttonE" value="blue" class="blueclass cbclass">
+	</div>
+	<div><input type="button" id="buttonF" value="yellow" class="yellowclass cbclass">
+	</div>
+</div>
+<div>
+Color Entire Background: <input type="radio" id="myRadio"></div>
+	<br>
+Retain Color Behavior: <input type="radio" id="myRadio"></div>
+</div>
+<script>
+$(".cbclass").on("click", function(e) {
+	console.log(this.value); //'value' is the text CSS "value" of the button.
+	var passColorNameTofunctionColorBtn = this.value;
+    functionColorBtn(passColorNameTofunctionColorBtn);
+});
+function functionColorBtn(acceptColorButtonName){
+	console.log(acceptColorButtonName);
+	var urlname ='/color_of_button_clicked_002/'+acceptColorButtonName;
+	console.log("urlname variable console log: ", urlname);
+		$.ajax ({
+		url: urlname,
+		// object property whose name is "method" (shoulda been called 'type'):
+		method: 'GET',
+		// method object property whose value is usually an anonymous function:
+		success: function (data){
+			console.log("data: ", data);
+			console.log("data.sentence: ",data.sentence, "data.colorVar: ",data.colorVar);
+			document.getElementById("colorSentence").innerHTML = data.sentence+data.colorVar+".";
+			$(".asablock").css("background-color", data.colorVar);
+			$("#colorSentence").css("margin-bottom", "50px");
+		},
+		error: function (err){
+			console.log("err: ", err);
+		}
+	});
+} 
+function myRadio() {
+    var x = document.createElement("INPUT");
+    x.setAttribute("type", "radio");
+    document.body.appendChild(x);
+}
+function myRadio2() {
+    var x = document.createElement("INPUT");
+    x.setAttribute("type", "radio");
+    document.body.appendChild(x);
+}
+</script>
+</body>
+</html>
+<!-- 1) make a new html file
+2) make a new route that serves the html new file.
+3) make a box roughly in the middle of the screen with 4 buttons in it side by side. Make at least some visible space between the edge of the box and the buttons.  Use another method other than a list in your implementation.
+4) give each button the text of the name of a color.
+5) make it so when you click a button the space between the box and the button turns the color that was clicked.
+6) make an api that uses the color that was clicked in a simple sentence specific to the color. Like if red was cliked then perhaps, "fire engines are red".... and send that sentence back down to the browser.
+7) display that sentence above the box of buttons. -->

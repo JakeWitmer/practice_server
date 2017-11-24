@@ -1,0 +1,101 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<h2>Hello, Sam.</h2>
+<input type="text" id="input1" placeholder="input 1">
+<input type="button" id="buttonA" value="red" class="simple_button">
+<br>	
+<input type="text" id="input2" placeholder="input 2">
+<input type="button" id="buttonB" value="green" class="simple_button">
+<br>	
+<input type="text" id="input3" placeholder="input 3">
+<input type="button" id="buttonC" value="blue" class="simple_button">
+<br>	
+<input type="text" id="input4" placeholder="input 4">
+<input type="button" id="buttonD" value="yellow" class="simple_button">
+<script>
+$(function() {
+$("#buttonA").on("click", function(e) {
+    Function1();
+});
+// dot (.something ) something = class; pound #something = id
+$("#buttonB").on("click", function(e) {
+    Function2();
+});
+function Function1 () {
+	var input1 = document.getElementById("input1").value;
+	if (input1 && input1.length){
+		$(".simple_button").css("background-color","#dddd49");
+		console.log(input1);
+		indepFunction(input1,0);
+	}
+}
+function Function2 () {
+	var input2 = document.getElementById("input2").value;
+	if (input2 && input2.length){
+		console.log(input2);
+		indepFunction(input2,1);
+	}
+}
+
+// This (commented out)kind of function definition is not "hoisted" and must occur 
+// before its function call:
+// var indepFunction = function (input1, a){
+//} This kind of function definition is "hoisted" and can occur after or before its function call: 
+function indepFunction(inputx, zerooroneoperator){
+	console.log(inputx, zerooroneoperator);
+	var urlname ='/two_inputs/'+inputx+'/'+zerooroneoperator;
+	console.log(urlname);
+		$.ajax ({
+		url: urlname,
+		// object property whose name is method (shoulda been called 'type'):
+		method: 'GET',
+		// method object property whose value is usually an anonymous function:
+		success: function (data){
+			console.log("data: ", data);
+		},
+		error: function (err){
+			console.log("err: ", err);
+		}
+	});
+}
+
+// Onclick event Handlers:
+// so yes, 
+// You'll need to give your buttons IDs
+// alternate syntax:
+
+// $("#yourButtonId").click(function(e) {
+//     Function1();
+// });
+// // ...I prefer the first syntax pattern.  There are lots of things that you can do in jquery with a similar pattern of:
+
+// $("CSSselector").on("eventName", function(theEventObject) {
+//      // do something and use the eventObject if you want
+// });
+
+// // plain javascript syntax (no jquery):
+// document.getElementById("idOfButton").addEventListener("click", Function1);
+// notice the absence of (); after Function1.
+
+
+// AJAX server object
+	// $.ajax ({
+	// 	url: '/first_ajax_example',
+	// 	// object property whose name is method (shoulda been called 'type'):
+	// 	method: 'GET',
+	// 	// method object property whose value is usually an anonymous function:
+	// 	success: function (data){
+	// 		console.log("data: ", data);
+	// 	},
+	// 	error: function (err){
+	// 		console.log("err: ", err);
+	// 	}
+	// });
+});
+console.log($);
+</script>
+</body>
+</html>
