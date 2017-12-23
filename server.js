@@ -73,7 +73,13 @@ server.route({
     handler: function (request, reply) {
         // reply('The number of this button is ' +(request.params.acceptNumberButtonName)+'!');
         // console.log(request.params.acceptNumberButtonName);
+        //?nameofvariable=valueforvariable&&
         var numberName = request.params.acceptNumberButtonName;
+        var fool = request.query.foo;
+        var shat = request.query.shit;
+        console.log("fool: ", fool);
+        console.log("bart: ", shat);
+        console.log("query params object: ", request.query);
         if (numberName === "one"){
             var numeral = 1;
         } else if (numberName === "five"){

@@ -15,7 +15,7 @@ font-family: arial;
 font-family: arial;
 }
 #numdisplay{
-font-family: arial
+font-family: arial;
 }
 /*.redclass {
 font-family: arial;
@@ -62,7 +62,7 @@ color: #FFFFFF;
 border: 4px solid #333333;
 }
 .sumclass {
-	position:center;
+position:center;
 font-family: arial;
 border-radius: 8px;
 background-color: #FFFFFF;
@@ -106,23 +106,24 @@ ul li {
 <li><input type="button" id="buttonD" value="five" class="fiveclass nbclass"></li>	
 <li><input type="button" id="buttonE" value="fifty" class="fiftyclass nbclass"></li>	
 <li><input type="button" id="buttonF" value="1,000" class="thousandclass nbclass"></li>
+<li><input type="text" id="inputfieldFName" placeholder="First Name"></li>
 </ul>
 <script> 
-// $(function() {
-// $("#buttonC").on("click", function(e) {
-//     Function1();
-// });
-// // dot (.something ) something = class; pound #something = id
-// $("#buttonD").on("click", function(e) {
-//     Function2();
-// });
-// $("#buttonE").on("click", function(e) {
-//     Function3();
-// });
-// // dot (.something ) something = class; pound #something = id
-// $("#buttonF").on("click", function(e) {
-//     Function4();
-// });
+$(function() {
+$("#buttonC").on("click", function(e) {
+    Function1();
+});
+// dot (.something ) something = class; pound #something = id
+$("#buttonD").on("click", function(e) {
+    Function2();
+});
+$("#buttonE").on("click", function(e) {
+    Function3();
+});
+// dot (.something ) something = class; pound #something = id
+$("#buttonF").on("click", function(e) {
+    Function4();
+});
 
 //----------------------------------------------------
 $(function() {
@@ -137,10 +138,10 @@ $(".nbclass").on("click", function(e) {
 });
 function functionColorBtn(acceptNumberButtonName){
 	console.log(acceptNumberButtonName);
-	var urlname ='/number_of_button_clicked/'+acceptNumberButtonName;
+	var urlname ='/number_of_button_clicked/' + acceptNumberButtonName + "?foo=bar&shit=bat" + ;
 	console.log("urlname variable console log: ", urlname);
 	console.log("just before the AJAX call");
-	$.ajax ({
+	$.ajax({
 		url: urlname,
 		// object property whose name is "method" (shoulda been called 'type'):
 		method: 'GET',
