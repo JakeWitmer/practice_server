@@ -1,0 +1,154 @@
+<!-- W3Schools.com Sequential Bootstrap Lessons -->
+<!-- Jumbotron --><!-- Comment / Break -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<style>
+ /*use the following inside the "row" attribute to space downward like so: <row="voffset1">*/
+.voffset1 { margin-top: 8.333%; }
+.voffset2 { margin-top: 16.666%; }
+.voffset3 { margin-top: 25%; }
+.voffset4 { margin-top: 33.333%; }
+.voffset5 { margin-top: 41.666%; }
+.voffset6 { margin-top: 50%; }
+.voffset7 { margin-top: 58.333%; }
+.voffset8 { margin-top: 66.666%; }
+.voffset9 { margin-top: 75%; }
+.voffset10 { margin-top: 83.333%; }
+.voffset11 { margin-top: 91.666%; }
+.voffset12 { margin-top: 100%; }
+
+.voffsetMinusFivepx {
+  margin-bottom:-5px;
+  margin-top:-5px;
+}
+.twofour {
+    background: #DDDDDD;
+    color: #888888;
+    font-style: bold;
+    border: 1px solid black;
+    border-radius: 25px;
+    text-align: left;
+/*    min-width:80%;*/
+}
+
+@media only screen and (max-width: 600px) {
+  .twofour {
+    background: #DDDDDD;
+    color: #888888;
+    font-style: bold;
+    border: 0px;
+    border-radius: 0px;
+    text-align: left;
+/*    min-width:80%;*/
+  }
+  .twofourmobile {
+    background: #DDDDDD;
+    color: #888888;
+    font-style: bold;
+    border: 1px solid black;
+    border-radius: 0px;
+    text-align: left;
+/*    min-width:80%;*/
+  }
+  .voffset1 { margin-top: 8.333%; 
+      background-color: #DDDDDD;}
+  body { 
+  background-color: #DDDDDD;
+  }
+}
+/*    #display-div {
+  width: 100%;
+  height: 30px;
+  padding-left: 10px;
+  padding-top: 10px;
+  text-align: left;
+}
+#display-span {
+  margin-left: 600px;
+}*/
+
+#display_edit_wrapper {
+  display: none;
+}
+.edit_inputs {
+  display: none;
+}
+.inline_dis {
+  display: inline;
+}
+.simple_button {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid gray;
+}
+
+</style>
+</head>
+<html>
+<body>
+<!-- <div class="jumbotron text-center">
+  <h1></h1>
+  <H4></H4> 
+</div> -->
+
+<div class="container-fluid">
+<div class="row voffset1">  
+</div>
+  <div class="row">   
+<!--     <div class="col-md-2">
+    </div> -->
+<!--     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; visibility:hidden;"></div> -->
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 twofour">
+<!--     <blockquote > -->
+    <br>
+  <div class="container;">
+  <form>
+    <div class="form-group">
+      <label for="usr">First Name:</label>
+      <input type="text" class="form-control" id="usr">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Last Name:</label>
+      <input type="password" class="form-control" id="pwd">
+    </div>
+    <div class="form-group">
+      <label for="pwd">email:</label>
+      <input type="password" class="form-control" id="email" placeholder="user@example.com">
+    </div>
+<!--     </blockquote>
+    <blockquote class="blockquote-reverse">
+    <footer> -->
+      <div class="text-center">
+    <input type="button" value="submit" onclick="submitFunction();" id="submit_example_btn" class="btn btn-primary btn-sm">
+<!--     </footer> -->
+</div>
+    <br>
+    <br>
+
+    </div>
+<!--     <button type="button" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+</button> -->
+    <div class="col-md-1">
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+</body>
+</html>
+<!-- Jumbotron --><!-- Comment / Break -->

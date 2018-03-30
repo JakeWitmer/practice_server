@@ -109,21 +109,21 @@ ul li {
 <li><input type="text" id="inputfieldFName" placeholder="First Name"></li>
 </ul>
 <script> 
-$(function() {
-$("#buttonC").on("click", function(e) {
-    Function1();
-});
-// dot (.something ) something = class; pound #something = id
-$("#buttonD").on("click", function(e) {
-    Function2();
-});
-$("#buttonE").on("click", function(e) {
-    Function3();
-});
-// dot (.something ) something = class; pound #something = id
-$("#buttonF").on("click", function(e) {
-    Function4();
-});
+// $(function() {
+// $("#buttonC").on("click", function(e) {
+//     Function1();
+// });
+// // dot (.something ) something = class; pound #something = id
+// $("#buttonD").on("click", function(e) {
+//     Function2();
+// });
+// $("#buttonE").on("click", function(e) {
+//     Function3();
+// });
+// // dot (.something ) something = class; pound #something = id
+// $("#buttonF").on("click", function(e) {
+//     Function4();
+// });
 
 //----------------------------------------------------
 $(function() {
@@ -138,7 +138,7 @@ $(".nbclass").on("click", function(e) {
 });
 function functionColorBtn(acceptNumberButtonName){
 	console.log(acceptNumberButtonName);
-	var urlname ='/number_of_button_clicked/' + acceptNumberButtonName + "?foo=bar&shit=bat" + ;
+	var urlname ='/number_of_button_clicked/' + acceptNumberButtonName + "?foo=bar&shit=bat";
 	console.log("urlname variable console log: ", urlname);
 	console.log("just before the AJAX call");
 	$.ajax({

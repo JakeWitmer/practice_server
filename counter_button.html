@@ -1,0 +1,20 @@
+<html>
+<head></head>
+<body>
+	<input type="button" id="mybutton" value="">
+<script>
+var count = 0;
+console.log(document.getElementById("mybutton").value);
+document.getElementById("mybutton").value = count;
+console.log(document.getElementById("mybutton").value);
+// if document.getElementById("mybutton").value = (count * 1);
+var button = document.getElementById("mybutton").value;
+console.log(button);
+mybutton.onclick = function(){
+	console.log(button)
+	count=count+1;
+	document.getElementById("mybutton").value=count;
+}
+</script>
+</body>
+</html>
